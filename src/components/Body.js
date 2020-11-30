@@ -63,14 +63,14 @@ export const Body = () => {
                     <img className="m-2 ml-5" src={img3} alt="img3" width="250" height="250" />
                 </div>
             </div>
-            <table className={(window.screen.availWidth > 380 ) ? "table mb-5" : "table fontPhone mb-5"} width="300px">
+            <table className={(window.screen.availWidth > 420 ) ? "table mb-5" : "table fontPhone mb-5"} width="300px">
                 <thead>
                     <tr>
                     
                     <th scope="col">Ancho (cm)</th>
                     <th scope="col">Alto (cm)</th>
                     <th scope="col">Precio<br/><small>(precio por kilo)</small></th>
-                    <th scope="col">{(window.screen.availWidth > 380 ) ? 'Cantidad'  : 'Cant.'} <br/><small>(1 display igual a 1000 bolsas)</small></th>
+                    <th scope="col">{(window.screen.availWidth > 420 ) ? 'Cantidad'  : 'Cant.'} <br/><small>(1 display igual a 1000 bolsas)</small></th>
                     <th scope="col">Añadir</th>
                     </tr>
                 </thead>
