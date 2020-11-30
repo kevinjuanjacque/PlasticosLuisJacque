@@ -7,7 +7,7 @@ import img3 from '../assets/imagen3bolsas.jpeg';
 
 export const Body = () => {
     const {setProducts,Products} = useContext(Context);
-
+    console.log(window.screen.availWidth);
     const densidad = 0.93;
     const bolsas=2;
     const precio=2400;
@@ -58,19 +58,19 @@ export const Body = () => {
             <div className="mx-auto">
 
                 <div className="row " >
-                    <img className="m-2 "  src={img1} alt="img1" width="250" height="250" />
+                    <img className="m-2 ml-5"  src={img1} alt="img1" width="250" height="250" />
                     <img className="m-2 ml-5" src={img2} alt="img2" width="250" height="250" />
                     <img className="m-2 ml-5" src={img3} alt="img3" width="250" height="250" />
                 </div>
             </div>
-            <table className="table mb-5">
+            <table className={(window.screen.availWidth > 380 ) ? "table mb-5" : "table fontPhone mb-5"} width="300px">
                 <thead>
                     <tr>
-                    <th scope="col">SKU</th>
+                    
                     <th scope="col">Ancho (cm)</th>
                     <th scope="col">Alto (cm)</th>
                     <th scope="col">Precio<br/><small>(precio por kilo)</small></th>
-                    <th scope="col">Cantidad <br/><small>(1 display igual a 1000 bolsas)</small></th>
+                    <th scope="col">{(window.screen.availWidth > 380 ) ? 'Cantidad'  : 'Cant.'} <br/><small>(1 display igual a 1000 bolsas)</small></th>
                     <th scope="col">Añadir</th>
                     </tr>
                 </thead>
@@ -78,11 +78,11 @@ export const Body = () => {
                     {tamanos.map((p,index)=>{
                         return(
                         <tr key={new Date()+index}>
-                            <th scope="row">{index}</th>
+                            
                             <td>{p.ancho}</td>
                             <td>{p.alto}</td>
                             <td>${ parseInt(parseInt(p.ancho)*parseInt(p.alto)*p.espesor*bolsas*densidad * precio /gramos )*10 }</td>
-                            <td width="1"> <input type="number" defaultValue={1} id={index} alt="input"/> </td>
+                            <td width="1"> <input type="number" className="form-control" defaultValue={1} id={index} alt="input" size="1" /> </td>
                             <td align="center"><IoIosAddCircle onClick={()=>{addToCart(index,document.getElementById(index).value,parseInt(parseInt(p.ancho)*parseInt(p.alto)*p.espesor*bolsas*densidad * precio /gramos )*10  )}} style={{cursor:"pointer"}} /></td>
                         </tr>)
                     })}

@@ -13,9 +13,17 @@ body{
     background: rgba(0, 0, 0, 0.3);
 }
 
-.table{
+table{
     color: white;
     font-size: 25px;
+    
+}
+.table{
+    color: white;
+}
+.fontPhone{
+    
+    font-size: 15px;
 }
 .th{
     font-weight: 700;
